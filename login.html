@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhotoShare</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#000;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    padding:20px;
+}
+
+.left{
+    max-width:450px;
+}
+
+.logo-icon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.brand{
+    font-size:54px;
+    font-weight:bold;
+    margin-bottom:20px;
+    background:linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.left h1{
+    font-size:48px;
+    line-height:1.3;
+    margin-bottom:20px;
+}
+
+.left p{
+    color:#b3b3b3;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.right{
+    width:350px;
+}
+
+.card{
+    background:#111;
+    border:1px solid #262626;
+    border-radius:12px;
+    padding:35px;
+}
+
+.card-title{
+    text-align:center;
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:1px solid #333;
+    border-radius:8px;
+    background:#1a1a1a;
+    color:white;
+}
+
+input:focus{
+    outline:none;
+    border-color:#555;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#0095f6;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.forgot{
+    text-align:center;
+    margin-top:15px;
+}
+
+.forgot a{
+    color:#8ab4f8;
+    text-decoration:none;
+}
+
+.signup{
+    margin-top:15px;
+    background:#111;
+    border:1px solid #262626;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+}
+
+.signup a{
+    color:#0095f6;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+#loading{
+    display:none;
+    margin-top:20px;
+    text-align:center;
+}
+
+.spinner{
+    width:40px;
+    height:40px;
+    border:4px solid #333;
+    border-top:4px solid #0095f6;
+    border-radius:50%;
+    margin:auto;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+#awareness{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:#1c1c1c;
+    border:1px solid #444;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.6;
+}
+
+#awareness h3{
+    margin-bottom:10px;
+    color:#ffcc00;
+}
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+    text-align:center;
+}
+
+.left h1{
+    font-size:34px;
+}
+
+.brand{
+    font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+
+        <div class="logo-icon">📸</div>
+
+        <div class="brand">InstaGram</div>
+
+        <h1>
+            See every moment from the people who matter most.
+        </h1>
+
+        <p>
+            Share photos, connect with friends, and discover stories
+            from around the world.
+        </p>
+
+    </div>
+
+    <div class="right">
+
+        <div class="card">
+
+            <div class="card-title">Login</div>
+
+            <input type="text" placeholder="Username, email or phone">
+
+            <input type="password" placeholder="Password">
+
+            <button onclick="loginDemo()">Log In</button>
+
+            <div class="forgot">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <div id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top:10px;">Signing in...</p>
+            </div>
+
+            <div id="awareness">
+
+                <h3>⚠️ Cybersecurity Awareness Demo</h3>
+
+                <p>
+                    This page was created for an educational phishing
+                    awareness demonstration.
+                </p>
+
+                <br>
+
+                <p>
+                    Attackers often imitate familiar login pages to
+                    trick users into entering credentials.
+                </p>
+
+                <br>
+
+                <p>
+                    No information was collected, stored, or transmitted.
+                </p>
+
+                <br>
+
+                <p>
+                    Always verify links, email senders, and website
+                    addresses before signing in.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="signup">
+            Don't have an account?
+            <a href="#">Sign up</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function loginDemo(){
+
+    document.getElementById("loading").style.display = "block";
+
+    setTimeout(function(){
+
+        document.getElementById("loading").style.display = "none";
+
+        document.getElementById("awareness").style.display = "block";
+
+    },2500);
+
+}
+
+</script>
+
+</body>
+</html>
